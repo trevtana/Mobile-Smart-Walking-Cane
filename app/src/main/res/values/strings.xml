@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Smart Walking Cane</string>
+    <string name="status_safe">Status Aman</string>
+    <string name="status_sos">SOS TERAKTIFKAN!</string>
+    <string name="light_on">Matikan Lampu</string>
+    <string name="light_off">Nyalakan Lampu</string>
+    <string name="sos">SOS</string>
+    <string name="sos_active">SOS: Aktif</string>
+    <string name="sos_inactive">SOS: Tidak Aktif</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
