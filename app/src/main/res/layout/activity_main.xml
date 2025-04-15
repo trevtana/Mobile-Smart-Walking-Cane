@@ -164,9 +164,10 @@
         app:cardElevation="4dp"
         app:layout_constraintBottom_toTopOf="@id/coordinator_layout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:padding="16dp">
 
             <!-- Tombol Lampu -->
@@ -175,16 +176,15 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:backgroundTint="@color/primary"
                 android:text="Nyalakan Lampu"
                 android:textColor="@color/white"
+                android:layout_gravity="center"
                 app:cornerRadius="28dp"
                 app:icon="@drawable/icon_light"
                 app:iconGravity="textStart"
-                app:iconTint="@color/white"
-                app:layout_constraintEnd_toStartOf="@id/sos_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:iconTint="@color/white" />
 
             <!-- Tombol SOS -->
             <com.google.android.material.button.MaterialButton
@@ -192,78 +192,89 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="8dp"
+                android:layout_weight="1"
                 android:backgroundTint="@color/alert_red"
                 android:text="SOS"
                 android:textColor="@color/white"
+                android:layout_gravity="center"
                 app:cornerRadius="28dp"
                 app:icon="@drawable/icon_sos"
                 app:iconGravity="textStart"
-                app:iconTint="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/light_button"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:iconTint="@color/white" />
 
-            <!-- Animasi Lottie untuk SOS -->
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/sos_animation"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/light_button"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true" />
+        </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Animasi Lottie untuk SOS -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/sos_animation"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp" />
+
     </androidx.cardview.widget.CardView>
 
     <!-- Bottom Navigation -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="105dp"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
             app:backgroundTint="@color/white"
-            app:elevation="8dp"
-            app:fabCradleMargin="12dp"
-            app:fabCradleRoundedCornerRadius="16dp"
-            app:fabCradleVerticalOffset="6dp">
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="Home"
-                android:src="@drawable/ic_home"
-                app:backgroundTint="@color/accent"
-                app:layout_anchor="@id/bottomAppBar"
-                app:maxImageSize="24dp"
-                app:tint="@color/white" />
+            app:fabCradleMargin="20dp"
+            app:fabAlignmentMode="center"
+            app:fabAnchorMode="cradle"
+            app:addElevationShadow="true"
+            app:elevation="16dp"
+            app:fabCradleRoundedCornerRadius="30dp"
+            app:hideOnScroll="true">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                app:elevation="0dp"
-                app:itemIconSize="24dp"
-                app:itemIconTint="@color/bottom_nav_icon_color"
-                app:itemTextColor="@color/bottom_nav_icon_color"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_nav_menu" />
+                app:elevation="15dp"
+                android:elevation="10dp"
+                app:itemIconTint="@color/primary"
+                app:itemTextColor="@color/primary_dark"
+                app:itemRippleColor="@color/accent_light"
+                app:itemActiveIndicatorStyle="@null"
+                app:labelVisibilityMode="auto"
+                style="@style/Widget.MyApp.BottomNavigationView"
+                app:menu="@menu/bottom_nav_menu"/>
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_home"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/accent"
+            android:src="@drawable/ic_home"
+            android:elevation="10dp"
+            android:translationY="5dp"
+            app:rippleColor="@color/white"
+            app:tint="@color/white"
+            app:maxImageSize="30dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:fabCustomSize="60dp"
+            app:layout_anchorGravity="center"
+            app:fabSize="normal"
+            android:stateListAnimator="@animator/fab_state_list_animator"
+            app:layout_anchor="@id/bottomAppBar"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
