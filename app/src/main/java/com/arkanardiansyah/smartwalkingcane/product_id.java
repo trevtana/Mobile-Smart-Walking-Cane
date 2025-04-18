@@ -24,5 +24,6 @@ public class product_id extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+        //RECOMMIT WAIT
     }
 }
