@@ -99,9 +99,36 @@ public class fragment_profile extends Fragment {
 
     // Method untuk format nomor telepon
     private String formatPhoneNumber(String phoneNumber) {
-        if (phoneNumber != null && phoneNumber.startsWith("0")) {
-            phoneNumber = "+62" + phoneNumber.substring(1); // Mengubah 0 menjadi +62
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            return "-";
         }
-        return phoneNumber != null ? phoneNumber : "-";
+
+        // Ubah 0 di depan jadi +62
+        if (phoneNumber.startsWith("0")) {
+            phoneNumber = "+62" + phoneNumber.substring(1);
+        }
+
+        // Hapus semua spasi/tanda khusus
+        phoneNumber = phoneNumber.replaceAll("[^\\d+]", "");
+
+        // Format: +62 XXX XXXX XXXX
+        if (phoneNumber.startsWith("+62") && phoneNumber.length() > 8) {
+            String formatted = phoneNumber.substring(0, 3); // +62
+            String remaining = phoneNumber.substring(3);
+
+            if (remaining.length() >= 9) {
+                // Misal: 81234567890 -> 812 3456 7890
+                formatted += " " + remaining.substring(0, 3) + " " + remaining.substring(3, 7) + " " + remaining.substring(7);
+            } else if (remaining.length() >= 7) {
+                formatted += " " + remaining.substring(0, 3) + " " + remaining.substring(3, 7) + " " + remaining.substring(7);
+            } else {
+                formatted += " " + remaining;
+            }
+
+            return formatted;
+        }
+
+        return phoneNumber; // fallback kalau format tidak sesuai
     }
+
 }
