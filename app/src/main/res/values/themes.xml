@@ -6,4 +6,17 @@
     </style>
 
     <style name="Theme.SmartWalkingCane" parent="Base.Theme.SmartWalkingCane" />
+
+    <style name="Widget.MyApp.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemIconSize">24dp</item>
+        <item name="itemIconTint">@android:color/darker_gray</item>
+        <item name="itemTextColor">@android:color/darker_gray</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <style name="ShapeAppearance.Material3.Corner.Full" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

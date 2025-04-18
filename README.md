@@ -41,4 +41,4 @@ Tongkat pintar yang dirancang untuk membantu lansia tetap aman, mandiri, dan ter
 
 Clone repositori ini:
 ```bash
-git clone https://github.com/namakamu/smart-walking-cane.git
+git clone https://github.com/trevtana/smart-walking-cane.git
