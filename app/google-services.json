@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285790876142",
+    "project_id": "fbsmartwalkingcane",
+    "storage_bucket": "fbsmartwalkingcane.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285790876142:android:41b5d0da9d4a8e3ec25eff",
+        "android_client_info": {
+          "package_name": "com.arkanardiansyah.smartwalkingcane"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwfpVH-SJD9nK2ws8VfxbBhEFb5qcpaB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
