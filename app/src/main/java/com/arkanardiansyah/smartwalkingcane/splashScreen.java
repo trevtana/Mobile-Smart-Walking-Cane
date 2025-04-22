@@ -1,12 +1,13 @@
 package com.arkanardiansyah.smartwalkingcane;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.VideoView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class splashScreen extends AppCompatActivity {
 
