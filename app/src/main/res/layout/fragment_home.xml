@@ -38,7 +38,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Status Bar -->
+    <!-- Status Card with 4 corners information -->
     <androidx.cardview.widget.CardView
         android:id="@+id/status_card"
         android:layout_width="match_parent"
@@ -50,63 +50,83 @@
         app:cardElevation="4dp"
         app:layout_constraintTop_toBottomOf="@id/header_layout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Status Text -->
-            <TextView
-                android:id="@+id/status_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status Aman"
-                android:textColor="@color/status_safe"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!-- Battery Status -->
+            <!-- Top Row -->
             <LinearLayout
-                android:id="@+id/battery_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:orientation="horizontal">
 
+                <!-- Top Left: Safety Status -->
                 <TextView
-                    android:id="@+id/battery_percentage"
+                    android:id="@+id/status_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Status Aman"
+                    android:textColor="@color/status_safe"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="start" />
+
+                <!-- Top Right: Battery Status -->
+                <LinearLayout
+                    android:id="@+id/battery_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:text="85%"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/battery_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/battery_indicator" />
+                    <TextView
+                        android:id="@+id/text_battery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:text="85%"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
 
+                    <ImageView
+                        android:id="@+id/battery_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/battery_indicator" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- SOS Status -->
-            <TextView
-                android:id="@+id/sos_status"
-                android:layout_width="wrap_content"
+            <!-- Bottom Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="SOS: Tidak Aktif"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/status_text" />
+                android:orientation="horizontal">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <!-- Bottom Left: SOS Status -->
+                <TextView
+                    android:id="@+id/sos_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SOS: Tidak Aktif"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:gravity="start" />
+
+                <!-- Bottom Right: Connection Status -->
+                <TextView
+                    android:id="@+id/text_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status: Connected"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:gravity="end" />
+            </LinearLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <!-- Map View -->
@@ -122,20 +142,21 @@
         app:layout_constraintBottom_toTopOf="@id/controls_card"
         app:layout_constraintTop_toBottomOf="@id/status_card">
 
-        <com.google.android.gms.maps.MapView
+        <fragment
             android:id="@+id/map_view"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <!-- Animasi Lottie untuk lokasi -->
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/location_animation"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/location_pin" />
+<!--        <com.airbnb.lottie.LottieAnimationView-->
+<!--            android:id="@+id/location_animation"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            app:lottie_autoPlay="true"-->
+<!--            app:lottie_loop="true"-->
+<!--            app:lottie_rawRes="@raw/location_pin" />-->
 
     </androidx.cardview.widget.CardView>
 

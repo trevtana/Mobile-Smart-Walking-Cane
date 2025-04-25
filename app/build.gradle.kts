@@ -32,6 +32,13 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    // Updated packaging block with exclusions
+    packaging {
+        resources.excludes.add("META-INF/INDEX.LIST")
+        resources.excludes.add("META-INF/*.kotlin_module")
+        resources.excludes.add("META-INF/io.netty.versions.properties") // Exclude netty versions properties file
+    }
 }
 
 dependencies {
@@ -63,10 +70,15 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.3.0")
 
     // MQTT
+    implementation("com.hivemq:hivemq-mqtt-client:1.3.5")
+    implementation(platform("com.hivemq:hivemq-mqtt-client-websocket:1.3.5"))
+    implementation(platform("com.hivemq:hivemq-mqtt-client-proxy:1.3.5"))
+    implementation(platform("com.hivemq:hivemq-mqtt-client-epoll:1.3.5"))
+    implementation("com.hivemq:hivemq-mqtt-client-reactor:1.3.5")
     implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5")
 
-    //Circle image
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    // Circle image
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
