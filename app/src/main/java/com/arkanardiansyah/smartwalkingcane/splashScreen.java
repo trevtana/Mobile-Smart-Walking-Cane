@@ -2,12 +2,15 @@ package com.arkanardiansyah.smartwalkingcane;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
 
 public class splashScreen extends AppCompatActivity {
 
@@ -24,32 +27,29 @@ public class splashScreen extends AppCompatActivity {
     }
 
     private void setupSplashVideo() {
-        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.splash;
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.splash1;
         Uri videoUri = Uri.parse(videoPath);
-        splashVideo.setVideoURI(videoUri);
-        splashVideo.start();
 
-        splashVideo.setOnCompletionListener(mediaPlayer -> {
-            navigateToNextScreen();
+        splashVideo.setVideoURI(videoUri);
+        splashVideo.setOnPreparedListener(mp -> {
+            splashVideo.start();
         });
 
-        splashVideo.setOnErrorListener((mediaPlayer, i, i1) -> {
+        splashVideo.setOnCompletionListener(mp -> navigateToNextScreen());
+        splashVideo.setOnErrorListener((mp, what, extra) -> {
             navigateToNextScreen();
             return true;
         });
     }
 
     private void navigateToNextScreen() {
-        // Cek apakah product ID sudah ada
         SharedPreferences preferences = getSharedPreferences("app_prefs", MODE_PRIVATE);
         String productId = preferences.getString("product_id", null);
 
         Intent intent;
         if (productId == null || productId.isEmpty()) {
-            // Jika product ID belum ada, navigasi ke halaman input product ID
             intent = new Intent(splashScreen.this, product_id.class);
         } else {
-            // Jika product ID sudah ada, navigasi langsung ke MainActivity
             intent = new Intent(splashScreen.this, MainActivity.class);
         }
         startActivity(intent);
