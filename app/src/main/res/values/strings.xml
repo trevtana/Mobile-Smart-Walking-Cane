@@ -8,9 +8,6 @@
     <string name="sos_active">SOS: Aktif</string>
     <string name="sos_inactive">SOS: Tidak Aktif</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="google_maps_key" />
-
     <string name="location_info">Mendapatkan lokasi pengguna...</string>
     <string name="respond">Tanggapi</string>
     <string name="google_maps_key">AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao</string>

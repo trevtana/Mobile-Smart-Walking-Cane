@@ -2,15 +2,12 @@ package com.arkanardiansyah.smartwalkingcane;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.IOException;
 
 public class splashScreen extends AppCompatActivity {
 
@@ -27,7 +24,7 @@ public class splashScreen extends AppCompatActivity {
     }
 
     private void setupSplashVideo() {
-        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.splash1;
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.splash;
         Uri videoUri = Uri.parse(videoPath);
 
         splashVideo.setVideoURI(videoUri);

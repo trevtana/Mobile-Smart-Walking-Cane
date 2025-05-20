@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Yusuf Leonardo"
+                android:text="-"
                 android:textColor="@color/primary_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                android:text="Yusuf.Leo@gmail.com"
+                android:text="-"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                android:text="+62 812-3456-7890"
+                android:text="-"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -159,7 +159,7 @@
                         android:id="@+id/user_age_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="65 tahun"
+                        android:text="-"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -201,7 +201,7 @@
                         android:id="@+id/user_gender_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Laki-laki"
+                        android:text="-"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -243,7 +243,7 @@
                         android:id="@+id/user_height_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="175 cm"
+                        android:text="-"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
